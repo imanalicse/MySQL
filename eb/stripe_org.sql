@@ -13,3 +13,6 @@ FROM shared_s3v3_organisations ORDER BY id DESC LIMIT 10;
 
 SELECT COUNT(stripe_connect_id) count_stripe_connect_id, stripe_connect_id, id, UUID, `name`, email
 FROM shared_s3v3_organisations WHERE stripe_connect_id !='' GROUP BY stripe_connect_id HAVING count_stripe_connect_id > 1;
+
+SELECT stripe_connect_id, id, UUID, `name`, email
+FROM shared_s3v3_organisations WHERE stripe_connect_id ='';

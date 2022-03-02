@@ -1,0 +1,2 @@
+SELECT customer_first_name, customer_last_name, customer_email, order_reference_code FROM shared_s3v3_org_orders Orders WHERE Orders.organisation_id = 193
+AND (Orders.id LIKE '%Iman%' OR CONCAT_WS(' ', Orders.customer_first_name, Orders.customer_last_name) LIKE '%Iman Ali%' OR Orders.order_reference_code LIKE '%Iman%') ORDER BY id DESC LIMIT 100;
