@@ -1,0 +1,1 @@
+UPDATE cities set name = 'Manikganj' WHERE name = "Manikganj";
