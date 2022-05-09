@@ -14,3 +14,12 @@ CASE
 END CASE
 
  */
+
+ update shared_s3v3_org_orders set refund_status = (
+    CASE
+        WHEN status = 3 THEN 1
+        WHEN status = 4 THEN 4
+        WHEN status = 5 THEN 2
+        WHEN status = 6 THEN 3
+        ELSE 0
+    END);
