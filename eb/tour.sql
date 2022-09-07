@@ -1,0 +1,2 @@
+UPDATE shared_s3v3_users SET show_org_dashboard_overview = 1, show_event_dashboard_overview = 1 WHERE email = 'iman2@mailinator.com';
+SELECT id, email, is_email_verified, show_org_dashboard_overview, show_event_dashboard_overview  FROM shared_s3v3_users WHERE email = 'iman2@mailinator.com';

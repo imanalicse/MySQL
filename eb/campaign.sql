@@ -4,9 +4,9 @@ FROM shared_s3v3_org_event_compaigns camp INNER JOIN shared_s3v3_organisations o
 camp.organisation_id = org.id WHERE org.`name` = '' ORDER BY id DESC LIMIT 50;
 
 
-SELECT UNIX_TIMESTAMP('2022-05-28 18:00:00');
-UPDATE shared_s3v3_org_event_compaigns SET scheduled_at = UNIX_TIMESTAMP('2022-05-31 20:00:00'), `status` = 'active' WHERE id = 96381;
-SELECT NOW(), NOW() + INTERVAL 1 HOUR;
+
+UPDATE shared_s3v3_org_event_compaigns SET scheduled_at = UNIX_TIMESTAMP(NOW()), `status` = 'active' WHERE id = 96526;
+
 
 SELECT camp.id, camp.campaign_name, camp.is_pre_flight_check_result, camp.`status`, camp.total_recipient, camp.scheduled_at,
 DATE_FORMAT(FROM_UNIXTIME(camp.scheduled_at), '%Y-%m-%d %H:%i:%s') AS scheduled_time
@@ -43,4 +43,7 @@ SELECT id, email, is_email_verified, show_org_dashboard_overview, show_event_das
 SELECT camp.id, camp.campaign_name, camp.is_pre_flight_check_result, camp.`status`, camp.total_recipient, camp.scheduled_at,
 DATE_FORMAT(FROM_UNIXTIME(camp.scheduled_at), '%Y-%m-%d %H:%i:%s') AS scheduled_time, org.`name` org_name, org.entitlement_received_from_monthly_allocation, entitlement_received_from_addon_purchase
 FROM shared_s3v3_org_event_compaigns camp INNER JOIN shared_s3v3_organisations org ON
-camp.organisation_id = org.id WHERE campaign_name = 'Liakat bhai org1' ORDER BY id DESC LIMIT 50;
+camp.organisation_id = org.id WHERE camp.id = 96526 ORDER BY id DESC LIMIT 50;
+
+
+SELECT id, campaign_id, entity_id, entity, org_id, recipient, subject, is_sent FROM shared_s3v3_worker_emailer_log WHERE entity = 'CAMPAIGN_PREFLIGHT_CHECK_FAILURE_NOTIFICATION' ORDER BY id desc;

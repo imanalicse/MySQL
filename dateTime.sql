@@ -3,6 +3,8 @@ SELECT UNIX_TIMESTAMP('2022-05-28 18:00:00');
 
 SELECT NOW(), UTC_TIMESTAMP(), DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(UTC_TIMESTAMP())), '%Y-%m-%d %H:%i:%s');
 
+DATE_FORMAT(FROM_UNIXTIME(`user.created`), '%Y-%m-%d %H:%i:%s') AS 'date_formatted'
+
 
 #Upcomming
 SELECT id, campaign_name, scheduled_at, DATE_FORMAT(FROM_UNIXTIME(scheduled_at), '%Y-%m-%d %H:%i:%s') AS scheduled_date_time
