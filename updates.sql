@@ -25,3 +25,5 @@
 UPDATE cities set name = 'Manikganj' WHERE name = "Manikganj";
 
 UPDATE shared_s3v3_org_event_attendee_data_copy set collection_type = 'from-buyers-only' WHERE collection_type = '';
+
+update shared_s3v3_org_events ev INNER JOIN shared_s3v3_org_attendee_forms attendee_form ON ev.id=attendee_form.event_id set once_enabled_order_form = 1 WHERE 1=1
