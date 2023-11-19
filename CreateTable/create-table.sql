@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS users (
      age INT CHECK (age > 0),
      created DATETIME DEFAULT CURRENT_TIMESTAMP,
      modified DATETIME ON UPDATE CURRENT_TIMESTAMP,
-     INDEX uuid (uuid)
+     UNIQUE INDEX uuid (uuid),
+     INDEX name (name)
 );
