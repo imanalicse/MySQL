@@ -1,0 +1,2 @@
+SELECT id, created, event_date_time, IF(event_date_time < created, created, event_date_time) AS compareable_date_time FROM shared_s3v3_recognition_image_notifications
+WHERE event_date_time < CURRENT_TIMESTAMP() AND DATE_ADD(IF(event_date_time < created, created, event_date_time), INTERVAL 24 HOUR) > NOW();
