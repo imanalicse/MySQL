@@ -1,0 +1,22 @@
+CREATE TABLE notifications (
+    `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `uuid` CHAR(36) NOT NULL DEFAULT (uuid()),
+    `notification_type` ENUM('', 'app','sms', 'email') NOT NULL DEFAULT '',
+    `notification_title` varchar(255) NOT NULL DEFAULT '',
+    `notification_text` TEXT NOT NULL DEFAULT '',
+     is_send_now TINYINT(1) NOT NULL DEFAULT 0,
+    `start_date_time` DATETIME DEFAULT NULL,
+    `end_date_time` DATETIME DEFAULT NULL,
+    `email_from` varchar(255) NOT NULL DEFAULT '',
+    `email_subject` varchar(255) NOT NULL DEFAULT '',
+    `email_bcc` varchar(255) NOT NULL DEFAULT '',
+    `condition_type` ENUM('', 'category_filter','custom_student') NOT NULL DEFAULT '',
+    `recipient_type` ENUM('', 'student','academic','guest') NOT NULL DEFAULT '',
+    `generic_search` JSON NOT NULL DEFAULT '',
+    `advanced_search` JSON NOT NULL DEFAULT '',
+     is_processing TINYINT(1) NOT NULL DEFAULT 0,
+     is_processed TINYINT(1) NOT NULL DEFAULT 0,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    modified DATETIME ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT `uk_notification_uuid` UNIQUE (`uuid`)
+) ENGINE=INNODB;
