@@ -1,4 +1,4 @@
-SELECT `name`, COUNT(*) duplicate_item_count, GROUP_CONCAT(id SEPARATOR ',') AS ids
+SELECT `name`, COUNT(*) duplicate_item_count, id, GROUP_CONCAT(id SEPARATOR ',') AS ids
     FROM categories GROUP BY name HAVING duplicate_item_count > 1;
 
 -- Duplicate based on multiple column:
