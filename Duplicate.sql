@@ -1,7 +1,5 @@
-SELECT name, COUNT(*) c FROM table GROUP BY name HAVING c > 1;
-
-SELECT payment_method_code, COUNT(*) payment_method_code_count FROM shared_s3v3_payments
-    GROUP BY payment_method_code HAVING payment_method_code_count > 1;
+SELECT `name`, COUNT(*) duplicate_item_count, GROUP_CONCAT(id SEPARATOR ',') AS ids
+    FROM categories GROUP BY name HAVING duplicate_item_count > 1;
 
 -- Duplicate based on multiple column:
 SELECT student_id, cermdt_ds, cermtm, COUNT(*) group_count FROM federation_zo75n_student_ceremonies
