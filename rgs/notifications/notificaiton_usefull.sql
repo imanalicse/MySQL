@@ -1,3 +1,6 @@
+SELECT nr.* FROM latrobe_d8765_notification_recipients nr INNER JOIN latrobe_d8765_notifications n ON n.id = nr.notification_id
+WHERE n.module_name = 'video_processed' ORDER BY n.id DESC, nr.id DESC;
+
 SET @notification_id = 80;
 SELECT id FROM southam_v4_latrobe.latrobe_d8765_notifications WHERE id =@notification_id;
 SELECT id FROM southam_v4_latrobe.latrobe_d8765_notification_groups WHERE notification_id =@notification_id;
