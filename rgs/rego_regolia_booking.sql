@@ -1,0 +1,3 @@
+select id, student_id, registration_status from vu_zo85b_student_ceremonies WHERE registration_status = 0 AND  student_id IN (select id from vu_zo85b_students where `status` = 'Booked' AND registration_status = 1 AND user_id IS NOT NULL AND cermdt_ds LIKE '24%');
+
+UPDATE vu_zo85b_student_ceremonies SET registration_status = 1 WHERE registration_status = 0 AND  student_id IN (select id from vu_zo85b_students where `status` = 'Booked' AND registration_status = 1 AND user_id IS NOT NULL AND cermdt_ds LIKE '24%');
