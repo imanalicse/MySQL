@@ -4,3 +4,5 @@ ALTER TABLE table_name
 ;
 
 ALTER TABLE table_name MODIFY COLUMN column_name ENUM('', 'value1','value2') NOT NULL DEFAULT '';
+
+ALTER TABLE table_name MODIFY COLUMN `uuid` VARCHAR(255) DEFAULT (uuid())
