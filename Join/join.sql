@@ -24,5 +24,8 @@ SELECT m.member_id, m.name AS member, c.committee_id, c.name AS committee
     FROM members m RIGHT JOIN committees c USING(`name`)
     WHERE member_id IS NULL;
 
-
-SELECT * FROM members m CROSS JOIN committees c;
+-- CROSS JOIN
+-- The cross join makes a Cartesian product of rows from the joined tables
+-- Suppose the first table has n rows and the second table has m rows. The cross-join that joins the tables will return nxm rows.
+SELECT m.member_id, m.name AS member, c.committee_id, c.name AS committee
+    FROM members m CROSS JOIN committees c;
