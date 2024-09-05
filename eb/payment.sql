@@ -17,5 +17,6 @@ SELECT id, country, country_code FROM shared_s3v3_organisations where `name` = '
 SELECT id, payment_method, order_reference_code, payment_reference_number, event_payment_method FROM shared_s3v3_org_orders WHERE order_reference_code LIKE '%YGN1Z5%' ORDER BY id DESC LIMIT 5;
 SELECT * FROM shared_s3v3_org_securepay_payments WHERE refid LIKE '%YGN1Z5%';
 
-SELECT * FROM shared_s3v3_org_payment_methods WHERE payment_method = 'PayPal' AND organisation_id IN (SELECT id FROM shared_s3v3_organisations WHERE country = 'South Africa');
+SELECT * FROM shared_s3v3_org_payment_methods WHERE organisation_id IN (SELECT id FROM shared_s3v3_organisations WHERE country = 'AU org seeder one');
+
 DELETE FROM shared_s3v3_org_payment_methods WHERE payment_method = 'PayPal' AND organisation_id IN (SELECT id FROM shared_s3v3_organisations WHERE country = 'South Africa');
