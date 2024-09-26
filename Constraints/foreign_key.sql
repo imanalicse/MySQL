@@ -14,3 +14,44 @@ The foreign key places constraints on data in the related tables, which allows M
 
 reference_option:
 RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT
+
+CREATE TABLE products(
+     productId INT AUTO_INCREMENT PRIMARY KEY,
+     productName varchar(100) not null,
+     categoryId INT NOT NULL,
+     CONSTRAINT fk_category
+         FOREIGN KEY (categoryId)
+             REFERENCES categories(categoryId)
+             ON UPDATE CASCADE
+             ON DELETE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE products(
+     productId INT AUTO_INCREMENT PRIMARY KEY,
+     productName varchar(100) not null,
+     categoryId INT,
+     CONSTRAINT fk_category
+         FOREIGN KEY (categoryId)
+             REFERENCES categories(categoryId)
+             ON UPDATE SET NULL
+             ON DELETE SET NULL
+)ENGINE=INNODB;
+
+
+
+ALTER TABLE tbl_name
+    ADD [CONSTRAINT [symbol]] FOREIGN KEY
+    [index_name] (col_name, ...)
+    REFERENCES tbl_name (col_name,...)
+    [ON DELETE reference_option]
+            [ON UPDATE reference_option]
+
+ALTER TABLE `product_image`
+    ADD CONSTRAINT `FK_product_image_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE;
+
+
+ALTER TABLE tbl_name DROP FOREIGN KEY fk_symbol;
+
+-- Disable/Enable foreign key checks:
+SET foreign_key_checks = 0;
+SET foreign_key_checks = 1;
