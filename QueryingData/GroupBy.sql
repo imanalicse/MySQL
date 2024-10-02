@@ -1,17 +1,22 @@
+/* the GROUP BY clause is used to group rows that have the same values in specified columns.
+   It is typically used with aggregate functions like COUNT(), SUM(), AVG(), MIN(), or MAX()
+   to perform operations on each group of data.
+ */
+
 -- A) Simple MySQL GROUP BY --
 SELECT status FROM orders GROUP BY status; -- as like as DISTINCT select
 
---B) GROUP BY with aggregate functions: allow to perform the calculation of set of rows and return a single value
+-- B) GROUP BY with aggregate functions: allow to perform the calculation of set of rows and return a single value
 SELECT status, COUNT(*) FROM orders GROUP BY status;
 
 SELECT `status`, SUM(orderdetails.quantityOrdered * orderdetails.priceEach) AS total
     FROM orders INNER JOIN orderdetails USING(orderNumber) GROUP BY status;
 
---returns the order numbers and the total amount of each order.
+-- returns the order numbers and the total amount of each order.
 SELECT `orderNumber`, SUM(quantityOrdered * priceEach) AS total  FROM orderdetails GROUP BY orderNumber;
 
---C) MySQL GROUP BY with expression example
---gets the total sales for each year
+-- C) MySQL GROUP BY with expression example
+-- gets the total sales for each year
 SELECT YEAR(orderDate) AS `year`, SUM(orderdetails.quantityOrdered * orderdetails.priceEach) AS total
     FROM orders INNER JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
     WHERE `status`='Shipped' GROUP BY YEAR(orderDate);
