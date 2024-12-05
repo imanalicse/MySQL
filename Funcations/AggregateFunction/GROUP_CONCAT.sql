@@ -8,6 +8,7 @@ SELECT GROUP_CONCAT(DISTINCT name) AS unique_names FROM users;
 SELECT GROUP_CONCAT(name ORDER BY name ASC) AS sorted_names FROM users;
 SELECT GROUP_CONCAT(name SEPARATOR '|') AS names_with_pipe FROM users;
 SELECT department_id, GROUP_CONCAT(employee_name) AS employees FROM employees GROUP BY department_id;
+SELECT order_from, GROUP_CONCAT(DISTINCT `status` ORDER BY `status` ASC SEPARATOR '|') AS all_unique_statuses FROM middleware_logs GROUP BY order_from;
 
 /* Limitations
 Maximum Length: The result of GROUP_CONCAT is limited by the group_concat_max_len system variable (default is 1,024 characters).
