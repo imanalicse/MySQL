@@ -3,8 +3,8 @@ CREATE PROCEDURE get_users
 BEGIN
     SELECT * FROM users;
     SELECT COUNT(*) AS total_user FROM users;
-END &&
-DELIMITER;
+END
+&& DELIMITER;
 
 
 
