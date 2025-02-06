@@ -1,0 +1,2 @@
+SELECT  order_sub_total, order_total, base_order_total, total_refunded, base_currency_code, currency_code, payment_method, payment_status, `status`, order_status
+FROM shared_s3v3_org_orders WHERE payment_method = 'Stripe' ORDER BY id DESC LIMIT 10;

@@ -16,3 +16,9 @@ FROM shared_s3v3_organisations WHERE stripe_connect_id !='' GROUP BY stripe_conn
 
 SELECT stripe_connect_id, id, UUID, `name`, email
 FROM shared_s3v3_organisations WHERE stripe_connect_id ='';
+
+
+SELECT organisations.id as organisation_id, stripe_connect_id FROM shared_s3v3_organisations organisations
+where stripe_connect_id != '' AND organisations.id NOT IN (SELECT DISTINCT(organisation_id) FROM shared_s3v3_settings WHERE setting_key = 'Site.is_stripe_domain_added') ORDER BY organisations.id DESC;
+
+SELECT * FROM shared_s3v3_settings WHERE setting_key = 'Site.is_stripe_domain_added';

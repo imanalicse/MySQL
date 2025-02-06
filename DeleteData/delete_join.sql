@@ -4,7 +4,8 @@ DELETE t1,t2 FROM t1
 WHERE t1.id = 1;
 
 -- DELETE with LEFT JOIN
--- We can also use the LEFT JOIN clause in the DELETE statement to delete rows in a table (left table) that does not have matching rows in another table (right table).
+-- We can also use the LEFT JOIN clause in the DELETE statement to delete rows in a table (left table)
+-- that does not have matching rows in another table (right table).
 
 DELETE T1 FROM T1
     LEFT JOIN T2 ON T1.key = T2.key
