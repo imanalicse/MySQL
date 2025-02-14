@@ -1,0 +1,1 @@
+SELECT DATEDIFF('2025-02-14', '2025-01-01') AS days_difference;
