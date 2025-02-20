@@ -1,0 +1,2 @@
+-- CONVERT_TZ(): converts a given date-time value from one time zone to another.
+-- CONVERT_TZ(datetime_value, from_timezone, to_timezone)

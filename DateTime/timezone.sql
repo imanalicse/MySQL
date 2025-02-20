@@ -6,4 +6,5 @@ select timediff(now(),convert_tz(now(),@@session.time_zone,'+00:00'));
 
 DATE_FORMAT(FROM_UNIXTIME(1654049042), '%Y-%m-%d %H:%i:%s');
 
+-- UTC_TIMESTAMP() - Returns the current UTC date and time. Ignores the session or system time zone setting.
 SELECT UTC_TIMESTAMP(),CURRENT_TIMESTAMP(), NOW();
